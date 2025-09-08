@@ -1,3 +1,4 @@
+// left category buttons
 const loadCategories = () => {
   fetch("https://openapi.programming-hero.com/api/categories")
     .then((res) => res.json())
@@ -10,6 +11,18 @@ const removeActive = () => {
   activeBtns.forEach((btn) => btn.classList.remove("active"));
 };
 
+// all trees show panel
+const allTreesBtn = document.getElementById("allTree-container");
+
+const loadAllTrees = async () => {
+  const url = `https://openapi.programming-hero.com/api/plants`;
+  const res = await fetch(url);
+  const data = await res.json();
+  displayCards(data.plants);
+};
+
+loadAllTrees();
+
 //modal
 const loadTreeDetails = async (id) => {
   const url = `https://openapi.programming-hero.com/api/plant/${id}`;
@@ -20,10 +33,10 @@ const loadTreeDetails = async (id) => {
 const displayTreeDetails = (treeDetails) => {
   const detailTrees = document.getElementById("modal-container");
   detailTrees.innerHTML = `
-  <div class="p-4">
+  <div class="p-2">
                         <h2 class="font-bold text-xl mb-2">${treeDetails.name}</h2>
-                        <img class="rounded-2xl h-60 w-full object-cover" src="${treeDetails.image}" alt="">
-                        <div class="flex mb-2">
+                        <img class="rounded-2xl h-40 w-full object-cover" src="${treeDetails.image}" alt="">
+                        <div class="flex mb-2 mt-1">
                             <h4 class="font-medium">Category: </h4>
                             <p class="text-[#1F293790]"> ${treeDetails.category}</p>
                         </div>
@@ -58,6 +71,7 @@ const loadCard = (id) => {
     .then((res) => res.json())
     .then((card) => {
       removeActive();
+
       const ctgBtn = document.getElementById(`category-btn-${id}`);
 
       ctgBtn.classList.add("active");
@@ -95,19 +109,32 @@ const displayCards = (cards) => {
 
     crtBtns.addEventListener("click", function () {
       alert(card.name + " has been added to the cart");
+
+      // Total Price Add and Update
+      let totalPrice = document.getElementById("total-price").innerText;
+      let cardPrice = card.price;
+      let totalPriceNum = parseInt(totalPrice);
+      let updateTotalPrice = totalPriceNum + cardPrice;
+      document.getElementById("total-price").innerText = updateTotalPrice;
+
+      // cart container
       const crtContainer = document.getElementById("container-total");
       const crtDiv = document.createElement("div");
-      crtDiv.className = "flex justify-between items-center ";
       crtDiv.innerHTML = `
                         <div>
-                              
-                            <h3 class="font-medium">${card.name}</h3>
-                            <p><i class="fa-solid fa-bangladeshi-taka-sign"></i><span>${card.price}</span> x 1</p>
+                        <div class="flex justify-between items-center bg-[#F0FDF4] p-2 rounded-xl mt-2">
+                            <div>
+                                <h1 class="font-semibold">${card.name}</h1>
+                                <p><i class="fa-solid fa-bangladeshi-taka-sign"></i><span>${card.price}</span> x 1</p>
+                            </div>
+                            <div>
+                                <p>
+                                    <i class="fa-solid fa-circle-xmark text-red-700 clear-btn"></i>
+                                </p>
+                            </div>
                         </div>
-                        <div>
-                            <p><i class="fa-solid fa-circle-xmark text-red-700 clear-btn"></i></p>
-                        </div>
-               
+                        
+                    </div>
                 
   `;
       crtContainer.append(crtDiv);
@@ -136,3 +163,10 @@ const displayCategories = (titles) => {
   }
 };
 loadCategories();
+
+allTreesBtn.addEventListener("click", function () {
+  console.log("clicked all");
+  removeActive();
+  allTreesBtn.classList.add("active");
+  loadAllTrees();
+});
