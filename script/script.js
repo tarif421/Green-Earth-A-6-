@@ -3,10 +3,11 @@ const loadCategories = () => {
     .then((res) => res.json())
     .then((title) => displayCategories(title.categories));
 };
+
+const cartBtns = document.getElementsByClassName("");
 const removeActive = () => {
   const activeBtns = document.querySelectorAll(".btn-Category");
   activeBtns.forEach((btn) => btn.classList.remove("active"));
-  console.log(activeBtns);
 };
 
 //3
@@ -42,13 +43,41 @@ const displayCards = (cards) => {
                                 Tree</button>
                             <p><i class="fa-solid fa-bangladeshi-taka-sign"></i> <span class="font-bold">${card.price}</span></p>
                         </div>
-                        <button class="btn btn-success w-full  border-none text-left  text-white rounded-full mt-3">Add
+                        <button   class="btn btn-success w-full  border-none text-left  text-white rounded-full mt-3 cart ">Add
                             to Cart</button>
                     </div>
     `;
+
     cardsContainer.append(cardDiv);
+
+    const crtBtns = cardDiv.querySelector(".cart");
+
+    crtBtns.addEventListener("click", function () {
+      alert(card.name + " has been added to the cart");
+      const crtContainer = document.getElementById("container-total");
+      const crtDiv = document.createElement("div");
+      crtDiv.className = "flex justify-between items-center ";
+      crtDiv.innerHTML = `
+                        <div>
+                            <h3 class="font-medium">${card.name}</h3>
+                            <p><i class="fa-solid fa-bangladeshi-taka-sign"></i><span>${card.price}</span> x 1</p>
+                        </div>
+                        <div>
+                            <p><i class="fa-solid fa-circle-xmark text-red-700 clear-btn"></i></p>
+                        </div>
+               
+                
+  `;
+      crtContainer.append(crtDiv);
+
+      const clearBTns = crtDiv.querySelector(".clear-btn");
+      clearBTns.addEventListener("click", function () {
+        crtDiv.innerHTML = "";
+      });
+    });
   }
 };
+
 window.loadCard = loadCard;
 
 // loadCategory();
