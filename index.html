@@ -61,11 +61,13 @@
             <aside class="border-red-400 col-span-2 bg-[#F0FDF4] ">
                 <h2 class="font-semibold">Categories</h2>
                 <div id="Tree-options-container">
-
+                    <button id="allTree-container"
+                        class="btn btn-outline btn-success w-full border-none  text-left justify-start text-[#1F2937]">All
+                        Trees</button>
                 </div>
             </aside>
             <!-- col Middle -->
-            <aside class=" bg-[#F0FDF4] col-span-8">
+            <aside class="  bg-[#F0FDF4] col-span-8">
                 <section id="card-container" class=" grid grid-cols-3 gap-4">
 
                 </section>
@@ -78,7 +80,25 @@
                 </section>
             </aside>
         </section>
+        <!-- Open the modal using ID.showModal() method -->
+        <!-- <button class="btn" onclick="my_modal_5.showModal()">open modal</button> -->
+        <dialog id="my_modal_5" class="modal modal-bottom sm:modal-middle">
+            <div class="modal-box">
+                <div id="modal-container">
+                    <div class="flex">
+                        <h4>Price</h4>
+                        <p class="text-[#1F293780]"><span class="text-[#1F293780]"><i
+                                    class="fa-solid fa-bangladeshi-taka-sign"></i></span>takaa</p>
+                    </div>
+
+                </div>
+
+            </div>
+
+            </div>
+        </dialog>
     </main>
+
 
 
     <script type="module" src="script/script.js"></script>
