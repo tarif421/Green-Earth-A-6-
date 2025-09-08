@@ -3,12 +3,25 @@ const loadCategories = () => {
     .then((res) => res.json())
     .then((title) => displayCategories(title.categories));
 };
+const removeActive = () => {
+  const activeBtns = document.querySelectorAll(".btn-Category");
+  activeBtns.forEach((btn) => btn.classList.remove("active"));
+  console.log(activeBtns);
+};
+
 //3
 const loadCard = (id) => {
   const url = `https://openapi.programming-hero.com/api/category/${id}`;
   fetch(url)
     .then((res) => res.json())
-    .then((card) => displayCards(card.plants));
+    .then((card) => {
+      removeActive();
+      const ctgBtn = document.getElementById(`category-btn-${id}`);
+
+      ctgBtn.classList.add("active");
+
+      displayCards(card.plants);
+    });
 };
 const displayCards = (cards) => {
   const cardsContainer = document.getElementById("card-container");
@@ -46,8 +59,8 @@ const displayCategories = (titles) => {
   for (const title of titles) {
     const btnTitles = document.createElement("div");
     btnTitles.innerHTML = `    
-                       <button onclick="loadCard('${title.id}')"
-                        class="btn btn-outline btn-success w-full  border-none text-left justify-start text-[#1F2937]">${title.category_name}</button>
+                       <button id="category-btn-${title.id}" onclick="loadCard('${title.id}')"
+                        class="btn btn-outline btn-success w-full border-none  text-left justify-start text-[#1F2937] btn-Category">${title.category_name}</button>
     `;
     titleContainer.append(btnTitles);
   }
