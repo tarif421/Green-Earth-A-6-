@@ -4,7 +4,16 @@ const loadCategories = () => {
     .then((res) => res.json())
     .then((title) => displayCategories(title.categories));
 };
-
+//  spinner
+const loading = (spin) => {
+  if (spin == true) {
+    document.getElementById("spinner").classList.remove("hidden");
+    document.getElementById("container").classList.add("hidden");
+  } else {
+    document.getElementById("container").classList.remove("hidden");
+    document.getElementById("spinner").classList.add("hidden");
+  }
+};
 const cartBtns = document.getElementsByClassName("");
 const removeActive = () => {
   const activeBtns = document.querySelectorAll(".btn-Category");
@@ -66,7 +75,9 @@ const displayTreeDetails = (treeDetails) => {
 window.loadTreeDetails = loadTreeDetails;
 //load card
 const loadCard = (id) => {
+  loading(true);
   const url = `https://openapi.programming-hero.com/api/category/${id}`;
+  loading(true);
   fetch(url)
     .then((res) => res.json())
     .then((card) => {
@@ -146,6 +157,7 @@ const displayCards = (cards) => {
       });
     });
   }
+  loading(false);
 };
 
 window.loadCard = loadCard;
