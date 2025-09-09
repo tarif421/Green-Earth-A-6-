@@ -84,8 +84,9 @@ const displayCards = (cards) => {
   cardsContainer.innerHTML = "";
   for (const card of cards) {
     const cardDiv = document.createElement("div");
+
     cardDiv.innerHTML = `
-    <div class="bg-white p-5 h-full flex flex-col justify-between rounded-2xl shadow-md ">
+    <div class="bg-white p-5 h-full flex flex-col justify-between rounded-2xl shadow-md mb-2 lg:mb-0">
                         <div class=" rounded-2xl ">
                             <img class=" rounded-2xl h-40 w-full object-cover" src="${card.image}" alt="">
                         </div>
@@ -125,7 +126,7 @@ const displayCards = (cards) => {
                         <div class="flex justify-between items-center bg-[#F0FDF4] p-2 rounded-xl mt-2">
                             <div>
                                 <h1 class="font-semibold">${card.name}</h1>
-                                <p><i class="fa-solid fa-bangladeshi-taka-sign"></i><span>${card.price}</span> x 1</p>
+                                <p><iclass="fa-solid fa-bangladeshi-taka-sign"></i><span  id="cart-${card.id}">${card.price}</span> x 1</p>
                             </div>
                             <div>
                                 <p>

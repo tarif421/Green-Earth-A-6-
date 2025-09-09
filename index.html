@@ -56,7 +56,7 @@
     <!-- main -->
     <main class="p-10 bg-[#F0FDF4] ">
         <h2 class="text-center items-centers font-semibold text-2xl text-[#1F2937]">Choose Your Trees</h2>
-        <section class="bg-[#F0FDF4] w-12/12 mx-auto grid grid-cols-12 p-7  gap-3 ">
+        <section class="bg-[#F0FDF4] w-12/12 mx-auto  grid lg:grid-cols-12  p-7  gap-3 ">
             <!-- Col left -->
             <aside class="border-red-400 col-span-2 bg-[#F0FDF4] ">
                 <h2 class="font-semibold">Categories</h2>
@@ -68,13 +68,13 @@
             </aside>
             <!-- col Middle -->
             <aside class="  bg-[#F0FDF4] col-span-8">
-                <section id="card-container" class=" grid grid-cols-3 gap-4">
+                <section id="card-container" class=" lg:grid lg:grid-cols-3 gap-4 ">
 
 
                 </section>
             </aside>
             <!-- col Right -->
-            <aside class="bg-white rounded-lg   col-span-2  ">
+            <aside class="bg-white rounded-lg  col-span-8 lg:col-span-2  ">
                 <h2 class="font-semibold text-xl my-2 ml-2">Your Cart</h2>
                 <section class="px-2">
 
@@ -106,20 +106,20 @@
         </dialog>
         <!-- campaign Section -->
 
-        <section class="border-2 border-yellow-400 w-2/3 mx-auto ">
+        <section class=" lg:w-2/3 mx-auto ">
             <h2 class="font-semibold text-2xl text-center items-center mt-7 mb-3">About the Campaign</h2>
-            <div class="flex">
-                <div class="border-2 border-red-400 flex-1">
+            <div class="lg:flex">
+                <div class=" flex-1">
                     <img src="assets/about.png" alt="">
                 </div>
-                <div class="border-2 border-green-400 flex-1 flex items-center justify-center ">
+                <div class=" flex-1 flex flex-col justify-center gap-3 px-4">
                     <p>Green Earth is a global tree plantation initiative dedicated to fighting climate change.
                         Since
                         our start, we’ve planted over 500,000 trees worldwide. By joining our campaign, you help
                         restore
                         forests, create habitats for wildlife, and combat global warming.</p>
 
-                    <div class="block">
+                    <div class="text-start">
                         <li>Restoration of natural habitats </li>
                         <li>Improvement of air quality</li>
                         <li>Support for local communities</li>
@@ -129,8 +129,30 @@
             </div>
         </section>
 
-    </main>
 
+    </main>
+    <!-- impact section -->
+    <section class="bg-[#CFF0DC]">
+        <div class="w-9/12 mx-auto  py-15 ">
+            <h1 class="text-center  mb-3 font-semibold text-xl">Our Impact</h1>
+            <div class=" flex gap-4 justify-between">
+                <div class=" bg-white   flex flex-col justify-center text-center w-[250px] h-[100px] rounded-xl">
+                    <p class="font-bold text-2xl text-[#15803D]">500k+ </p>
+                    <p class="text-[#1F293790]">Trees Planted</p>
+                </div>
+                <div class="bg-white   flex flex-col justify-center text-center w-[250px] h-[100px] rounded-xl">
+                    <p class="font-bold text-2xl text-[#15803D]">120+ </p>
+                    <p class="text-[#1F293790]">Communities Involved</p>
+                </div>
+                <div class=" bg-white   flex flex-col justify-center text-center w-[250px] h-[100px] rounded-xl">
+                    <p class="font-bold text-2xl text-[#15803D]">30+ </p>
+                    <p class="text-[#1F293790]">30+
+                        Countries Reached</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
 
 
 
