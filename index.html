@@ -154,6 +154,54 @@
         </div>
     </section>
 
+    <!-- Donate section -->
+    <section class="bg-[#166534] flex  justify-center">
+
+        <div class="text-center my-10 ">
+            <h2 class="text-white font-medium text-xl mb-6">Plant a Tree Today</h2>
+            <div class=" bg-[#15803D]  w-[400px] h-[250px] p-5  ">
+                <div>
+                    <label class="input validator w-full my-2">
+                        <svg class="h-[1em] opacity-50" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                            <g stroke-linejoin="round" stroke-linecap="round" stroke-width="2.5" fill="none"
+                                stroke="currentColor">
+                                <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"></path>
+                                <circle cx="12" cy="7" r="4"></circle>
+                            </g>
+                        </svg>
+                        <input type="text" required placeholder="Your Name" pattern="[A-Za-z][A-Za-z0-9\-]*"
+                            minlength="3" maxlength="30" title="Only letters, numbers or dash" />
+                    </label>
+
+                    <br>
+                    <!--  -->
+                    <label class="input validator w-full my-2">
+                        <svg class="h-[1em] opacity-50" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                            <g stroke-linejoin="round" stroke-linecap="round" stroke-width="2.5" fill="none"
+                                stroke="currentColor">
+                                <rect width="20" height="16" x="2" y="4" rx="2"></rect>
+                                <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path>
+                            </g>
+                        </svg>
+                        <input type="email" placeholder="Your Email Address" required />
+                    </label>
+                    <div class="validator-hint hidden"></div>
+                </div>
+
+                <!--  -->
+                <form class="">
+                    <select class="select validator w-full my-2" required>
+                        <option disabled selected value="">Number of Trees:</option>
+                        <option>200</option>
+                        <option>100</option>
+                    </select>
+
+
+                    <button class="btn w-full bg-[#FACC15] text-[#15803D]" type="submit">Donate Now</button>
+                </form>
+            </div>
+        </div>
+    </section>
 
 
     <script type="module" src="script/script.js"></script>
